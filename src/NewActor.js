@@ -14,10 +14,8 @@ class NewActor extends Component {
   handleClick() {
     const { onSubmit } = this.props
 
-    console.log('onSubmit', onSubmit)
-
     if (onSubmit) {
-      onSubmit({ init: this._init, name: this._name })
+      onSubmit({ init: this._init.value, name: this._name.value })
     }
   }
 
