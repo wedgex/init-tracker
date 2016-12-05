@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react'
 import Actor from './Actor'
+import { sort as sortActors } from './Actors'
 
 const ActorList = ({ actors }) => (
   <div>
-    { actors.map((actor, i) => <Actor key={i} {...actor} />) }
+    { sortActors(actors).map((actor, i) => <Actor key={i} {...actor} />) }
   </div>
 )
 
