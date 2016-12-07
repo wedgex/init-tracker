@@ -1,6 +1,5 @@
 import { clean, sort, load, save, ACTORS_STORE_KEY } from './Actors'
 
-
 describe('sort', () => {
   it('sorts actors by initiative' , () => {
     const actors = [

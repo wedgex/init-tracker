@@ -11,7 +11,7 @@ const byInit = (actor1, actor2) => {
 }
 
 export const sort = actors => {
-  return actors.sort(byInit)
+  return [...actors].sort(byInit)
 }
 
 export const clean = actor => {
