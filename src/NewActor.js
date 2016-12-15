@@ -18,6 +18,10 @@ class NewActor extends Component {
     if (onSubmit) {
       onSubmit({ init: this._init.value, name: this._name.value })
     }
+
+    this._init.value = ''
+    this._name.value = ''
+    this._name.focus()
   }
 
   render() {

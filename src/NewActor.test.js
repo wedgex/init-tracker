@@ -11,3 +11,14 @@ it('calls onSubmit with name and init', () => {
   wrapper.find('button').simulate('click')
   expect(onSubmit.calledWith({ init: '10', name: 'Snuglesworth' })).toEqual(true)
 })
+
+it('clears fields on submit', () => {
+  const wrapper = mount(<NewActor />)
+  const name = wrapper.find('input[name="name"]')
+  name.node.value = 'Snuglesworth'
+  const init = wrapper.find('input[name="init"]')
+  init.node.value = 10
+  wrapper.find('button').simulate('click')
+  expect(name.node.value).toEqual('')
+  expect(init.node.value).toEqual('')
+})
