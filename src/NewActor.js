@@ -9,10 +9,11 @@ class NewActor extends Component {
   constructor(props) {
     super(props)
 
-    this.handleClick = this.handleClick.bind(this)
+    this.submit = this.submit.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
   }
 
-  handleClick() {
+  submit() {
     const { onSubmit } = this.props
 
     if (onSubmit) {
@@ -24,6 +25,13 @@ class NewActor extends Component {
     this._name.focus()
   }
 
+  handleKeyPress(event) {
+    console.log(event.charCode)
+    if (event.charCode === 13) {
+      this.submit()
+    }
+  }
+
   render() {
     return (
       <div className="NewActor">
@@ -32,6 +40,7 @@ class NewActor extends Component {
           name="name"
           placeholder="name"
           className="NewActorName"
+          onKeyPress={this.handleKeyPress}
           ref={ input => this._name = input }
         />
         <input
@@ -39,11 +48,12 @@ class NewActor extends Component {
           name="init"
           placeholder="init"
           className="NewActorInit"
+          onKeyPress={this.handleKeyPress}
           ref={ input => this._init = input }
         />
         <button
           className="NewActorAdd"
-          onClick={ this.handleClick }
+          onClick={ this.submit }
         >
           Add
         </button>
