@@ -1,0 +1,21 @@
+.Actor {
+  display: flex;
+}
+
+.ActorInit {
+  font-size: 36px;
+  text-align: top;
+  color: lightgray;
+  width: 50px;
+  text-align: right;
+}
+
+.ActorName {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: left;
+  flex-grow: 2;
+}
+
+.ActorDelete {
+}

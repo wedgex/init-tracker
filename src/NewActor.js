@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import './NewActor.css'
 
 class NewActor extends Component {
   static propTypes = {
@@ -21,10 +22,27 @@ class NewActor extends Component {
 
   render() {
     return (
-      <div>
-        <input type="text" name="name" placeholder="name" ref={ input => this._name = input } />
-        <input type="number" name="init" placeholder="init" ref={ input => this._init = input } />
-        <button onClick={ this.handleClick }>Add</button>
+      <div className="NewActor">
+        <input
+          type="text"
+          name="name"
+          placeholder="name"
+          className="NewActorName"
+          ref={ input => this._name = input }
+        />
+        <input
+          type="number"
+          name="init"
+          placeholder="init"
+          className="NewActorInit"
+          ref={ input => this._init = input }
+        />
+        <button
+          className="NewActorAdd"
+          onClick={ this.handleClick }
+        >
+          Add
+        </button>
       </div>
     )
   }
