@@ -3,9 +3,14 @@ import './ActorList.css'
 import Actor from './Actor'
 import { sort as sortActors } from './Actors'
 
-const ActorList = ({ actors }) => (
+const ActorList = ({ actors, removeActor }) => (
   <div className="ActorList">
-    { sortActors(actors).map((actor, i) => <Actor key={i} {...actor} />) }
+  {
+    sortActors(actors).map((actor, i) => (
+      <Actor key={i} {...actor} onRemove={() => removeActor(actor.id) }/>
+    ))
+  }
+
   </div>
 )
 
