@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import NewActor from './NewActor'
-import ActorList from './ActorList'
+import Actor from './Actor'
 import {
   create as createActor,
+  sort as sortActors,
 } from './Actors'
 
 const remove = (arr, index) => (
@@ -18,7 +19,10 @@ class App extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { actors: props.actors }
+    this.state = {
+      actors: props.actors,
+      selectedActorId: null,
+    }
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleRemove = this.handleRemove.bind(this)
@@ -38,6 +42,10 @@ class App extends Component {
     this.setState({ actors: newActors }, () => this.saveActors(newActors))
   }
 
+  selectActor(selectedActorId) {
+    this.setState({ selectedActorId })
+  }
+
   saveActors(actors) {
     const { saveActors } = this.props
     if (saveActors) saveActors(actors)
@@ -48,9 +56,17 @@ class App extends Component {
     return (
       <div className="App">
         <NewActor onSubmit={this.handleSubmit} />
-        <ActorList actors={actors} removeActor={this.handleRemove} />
+        {
+          sortActors(actors).map((actor, i) => (
+            <Actor
+              key={i}
+              {...actor}
+              onRemove={ () => this.handleRemove(actor.id) }
+            />
+          ))
+        }
       </div>
-    );
+    )
   }
 }
 
