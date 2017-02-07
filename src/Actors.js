@@ -19,7 +19,7 @@ export const sort = actors => {
 export const create = actor => ({
   id: uuid(),
   name: actor.name,
-  init: parseInt(actor.init) || 0,
+  init: parseInt(actor.init, 10) || 0,
 })
 
 export const clean = actor => {
