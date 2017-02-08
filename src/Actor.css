@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.SelectedActor {
+  background-color: darkgray;
+}
+
 .ActorInit {
   font-size: 36px;
   text-align: top;

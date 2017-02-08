@@ -42,6 +42,16 @@ class App extends Component {
     this.setState({ actors: newActors }, () => this.saveActors(newActors))
   }
 
+  handleSelect(id) {
+    const { selectedActorId } = this.state
+
+    if (selectedActorId === id) {
+      this.setState({ selectedActorId: null })
+    } else {
+      this.setState({ selectedActorId: id })
+    }
+  }
+
   selectActor(selectedActorId) {
     this.setState({ selectedActorId })
   }
@@ -52,7 +62,7 @@ class App extends Component {
   }
 
   render() {
-    const { actors } = this.state
+    const { actors, selectedActorId } = this.state
     return (
       <div className="App">
         <NewActor onSubmit={this.handleSubmit} />
@@ -61,7 +71,9 @@ class App extends Component {
             <Actor
               key={i}
               {...actor}
+              isSelected={ actor.id === selectedActorId }
               onRemove={ () => this.handleRemove(actor.id) }
+              onClick={ () => this.handleSelect(actor.id) }
             />
           ))
         }

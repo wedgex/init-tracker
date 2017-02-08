@@ -19,3 +19,10 @@ it('calls onRemove when delete is clicked', () => {
   wrapper.find('button').simulate('click')
   expect(onRemove.called).toEqual(true)
 })
+
+it('calls onClick when clicked', () => {
+  const onClick = sinon.spy()
+  const wrapper = shallow(<Actor onClick={onClick} />)
+  wrapper.simulate('click')
+  expect(onClick.called).toEqual(true)
+})

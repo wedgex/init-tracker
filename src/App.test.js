@@ -24,3 +24,24 @@ it('renders each actor in order', () => {
     expect(actor.props().name).toEqual(sortedActors[i].name)
   })
 })
+
+it('selects an actor when clicked', () => {
+  const actors = [{ id: '123' }]
+  const wrapper = mount(<App actors={actors} />)
+  wrapper
+    .find('Actor')
+    .simulate('click')
+  expect(wrapper.find('Actor').props().isSelected).toEqual(true)
+})
+
+it('reselecting an actor unselects it', () => {
+  const actors = [{ id: '123' }]
+  const wrapper = mount(<App actors={actors} />)
+  wrapper
+    .find('Actor')
+    .simulate('click')
+  wrapper
+    .find('Actor')
+    .simulate('click')
+  expect(wrapper.find('Actor').props().isSelected).toEqual(false)
+})
