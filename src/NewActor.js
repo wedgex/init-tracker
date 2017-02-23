@@ -26,7 +26,6 @@ class NewActor extends Component {
   }
 
   handleKeyPress(event) {
-    console.log(event.charCode)
     if (event.charCode === 13) {
       this.submit()
     }
