@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import SerializableForm from './SerializableForm'
 import './NewActor.css'
 
 class NewActor extends Component {
@@ -6,57 +7,25 @@ class NewActor extends Component {
     onSubmit: PropTypes.func,
   }
 
-  constructor(props) {
-    super(props)
-
-    this.submit = this.submit.bind(this)
-    this.handleKeyPress = this.handleKeyPress.bind(this)
-  }
-
-  submit() {
-    const { onSubmit } = this.props
-
-    if (onSubmit) {
-      onSubmit({ init: this._init.value, name: this._name.value })
-    }
-
-    this._init.value = ''
-    this._name.value = ''
-    this._name.focus()
-  }
-
-  handleKeyPress(event) {
-    if (event.charCode === 13) {
-      this.submit()
-    }
-  }
-
   render() {
     return (
-      <div className="NewActor">
+      <SerializableForm className="NewActor" onSubmit={this.props.onSubmit}>
         <input
           type="text"
           name="name"
           placeholder="name"
           className="NewActorName"
-          onKeyPress={this.handleKeyPress}
-          ref={ input => this._name = input }
         />
         <input
           type="number"
           name="init"
           placeholder="init"
           className="NewActorInit"
-          onKeyPress={this.handleKeyPress}
-          ref={ input => this._init = input }
         />
-        <button
-          className="NewActorAdd"
-          onClick={ this.submit }
-        >
+        <button className="NewActorAdd" type="submit">
           Add
         </button>
-      </div>
+      </SerializableForm>
     )
   }
 }

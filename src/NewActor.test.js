@@ -1,24 +1,27 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import NewActor from './NewActor'
 import sinon from 'sinon'
 
-it('calls onSubmit with name and init', () => {
+it('passes onSubmit to Form', () => {
   const onSubmit = sinon.spy()
-  const wrapper = mount(<NewActor onSubmit={onSubmit} />)
-  wrapper.find('input[name="name"]').node.value = 'Snuglesworth'
-  wrapper.find('input[name="init"]').node.value = 10
-  wrapper.find('button').simulate('click')
-  expect(onSubmit.calledWith({ init: '10', name: 'Snuglesworth' })).toEqual(true)
+  const wrapper = shallow(<NewActor onSubmit={onSubmit} />)
+  expect(wrapper.find('SerializableForm').props().onSubmit).toEqual(onSubmit)
 })
 
-it('clears fields on submit', () => {
-  const wrapper = mount(<NewActor />)
-  const name = wrapper.find('input[name="name"]')
-  name.node.value = 'Snuglesworth'
-  const init = wrapper.find('input[name="init"]')
-  init.node.value = 10
-  wrapper.find('button').simulate('click')
-  expect(name.node.value).toEqual('')
-  expect(init.node.value).toEqual('')
+it('renders name input', () => {
+  const wrapper = shallow(<NewActor />)
+  expect(wrapper.find('input[name="name"]').length).toEqual(1)
+})
+
+it('renders init input', () => {
+  const wrapper = shallow(<NewActor />)
+  expect(wrapper.find('input[name="init"]').length).toEqual(1)
+})
+
+it('renders add button', () => {
+  const wrapper = shallow(<NewActor />)
+  const button = wrapper.find('button')
+  expect(button.length).toEqual(1)
+  expect(button.text()).toEqual('Add')
 })

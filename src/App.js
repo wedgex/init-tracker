@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import NewActor from './NewActor'
+import NewActorContainer from './NewActorContainer'
 import Actor from './Actor'
 import {
   create as createActor,
@@ -65,7 +65,7 @@ class App extends Component {
     const { actors, selectedActorId } = this.state
     return (
       <div className="App">
-        <NewActor onSubmit={this.handleSubmit} />
+        <NewActorContainer onSubmit={this.handleSubmit} />
         {
           sortActors(actors).map((actor, i) => (
             <Actor
