@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme'
-import App from './App';
+import App from './App'
 import { sort } from './Actors'
 
 it('removes actor when clicking delete', () => {

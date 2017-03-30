@@ -1,7 +1,7 @@
 import { clean, sort, load, save, ACTORS_STORE_KEY } from './Actors'
 
 describe('sort', () => {
-  it('sorts actors by initiative' , () => {
+  it('sorts actors by initiative', () => {
     const actors = [
       { init: 10, name: 'Snugglesworth' },
       { init: 20, name: 'Balasar' },
@@ -39,7 +39,7 @@ describe('load', () => {
     const actors = [{ init: 1, name: 'Snuglesworth' }]
     window.localStorage.setItem(
       ACTORS_STORE_KEY,
-      JSON.stringify(actors)
+      JSON.stringify(actors),
     )
     expect(load()).toEqual(actors)
   })

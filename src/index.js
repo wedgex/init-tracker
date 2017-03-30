@@ -5,5 +5,5 @@ import './index.css';
 
 ReactDOM.render(
   <Root />,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

@@ -12,9 +12,9 @@ const byInit = (actor1, actor2) => {
   return 0
 }
 
-export const sort = actors => {
-  return [...actors].sort(byInit)
-}
+export const sort = actors => (
+  [...actors].sort(byInit)
+)
 
 export const create = actor => ({
   id: uuid(),

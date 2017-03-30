@@ -1,7 +1,7 @@
 import React from 'react'
+import sinon from 'sinon'
 import { shallow } from 'enzyme'
 import Actor from './Actor'
-import sinon from 'sinon'
 
 it('renders init', () => {
   const wrapper = shallow(<Actor init={5} />)

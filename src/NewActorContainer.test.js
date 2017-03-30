@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import NewActorContainer from './NewActorContainer'
 import sinon from 'sinon'
+import NewActorContainer from './NewActorContainer'
 
 it('calls onSubmit with serialized form data', () => {
   const fauxEvent = { target: { reset: sinon.spy() } }

@@ -1,7 +1,7 @@
 import React from 'react'
+import sinon from 'sinon'
 import { shallow, mount } from 'enzyme'
 import SerializableForm from './SerializableForm'
-import sinon from 'sinon'
 
 it('renders children', () => {
   const wrapper = shallow(
