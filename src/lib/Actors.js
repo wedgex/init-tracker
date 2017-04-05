@@ -21,11 +21,3 @@ export const create = actor => ({
   name: actor.name,
   init: parseInt(actor.init, 10) || 0,
 })
-
-export const clean = actor => {
-  if (!actor.init) {
-    return { ...actor, init: 0 }
-  }
-
-  return actor
-}

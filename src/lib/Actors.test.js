@@ -1,4 +1,4 @@
-import { clean, sort } from './Actors'
+import { sort } from './Actors'
 
 describe('sort', () => {
   it('sorts actors by initiative', () => {
@@ -13,19 +13,5 @@ describe('sort', () => {
       { init: 10, name: 'Snugglesworth' },
       { init: 1, name: 'Thorgrim' },
     ])
-  })
-})
-
-describe('clean', () => {
-  it('defaults init to 0 if empty string', () => {
-    expect(clean({ init: '' })).toEqual({ init: 0 })
-  })
-
-  it('defaults init to 0 if null', () => {
-    expect(clean({ init: null })).toEqual({ init: 0 })
-  })
-
-  it('defaults init to 0 if missing', () => {
-    expect(clean({})).toEqual({ init: 0 })
   })
 })
