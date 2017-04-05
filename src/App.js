@@ -5,7 +5,7 @@ import Actor from './Actor'
 import {
   create as createActor,
   sort as sortActors,
-} from './Actors'
+} from './lib/Actors'
 
 const remove = (arr, index) => (
   [...arr.slice(0, index), ...arr.slice(index + 1)]
