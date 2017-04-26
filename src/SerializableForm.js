@@ -14,13 +14,6 @@ class SerializableForm extends Component {
     super(props)
 
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleKeyPress = this.handleKeyPress.bind(this)
-  }
-
-  handleKeyPress(event) {
-    if (event.charCode === 13) {
-      this.submit()
-    }
   }
 
   handleSubmit(event) {
@@ -40,7 +33,6 @@ class SerializableForm extends Component {
       <form
         {...formProps}
         onSubmit={this.handleSubmit}
-        onKeyPress={this.handleKeyPress}
         ref={ node => this._form = node }
       >
         { children }
