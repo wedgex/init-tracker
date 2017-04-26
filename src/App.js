@@ -64,7 +64,7 @@ class App extends Component {
   render() {
     const { actors, selectedActorId } = this.state
     return (
-      <div className="App">
+      <div>
         <NewActorContainer onSubmit={this.handleSubmit} />
         {
           sortActors(actors).map((actor, i) => (

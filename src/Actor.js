@@ -3,10 +3,12 @@ import cn from 'classnames'
 import './Actor.css'
 
 const Actor = ({ init, name, isSelected, onRemove, onClick }) => (
-  <div className={cn('Actor', isSelected && 'SelectedActor')} onClick={onClick}>
-    <div className="ActorInit">{ init }</div>
-    <div className="ActorName">{ name }</div>
-    <button className="ActorDelete" onClick={onRemove}>Delete</button>
+  <div className={cn('box columns is-gapless', isSelected && 'actor-selected')} onClick={onClick}>
+    <div className="actor-init column">{ init }</div>
+    <div className="actor-name column is-three-quarters">{ name }</div>
+    <p className="control column">
+      <button className="button" onClick={onRemove}>Delete</button>
+    </p>
   </div>
 )
 

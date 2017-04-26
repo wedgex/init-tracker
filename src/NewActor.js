@@ -9,22 +9,28 @@ class NewActor extends Component {
 
   render() {
     return (
-      <SerializableForm className="NewActor" onSubmit={this.props.onSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="name"
-          className="NewActorName"
-        />
-        <input
-          type="number"
-          name="init"
-          placeholder="init"
-          className="NewActorInit"
-        />
-        <button className="NewActorAdd" type="submit">
-          Add
-        </button>
+      <SerializableForm className="form columns" onSubmit={this.props.onSubmit}>
+        <p className="control column is-two-thirds">
+          <input
+            type="text"
+            name="name"
+            placeholder="name"
+            className="input"
+          />
+        </p>
+        <p className="control column">
+          <input
+            type="number"
+            name="init"
+            placeholder="init"
+            className="input"
+          />
+        </p>
+        <p className="control column">
+          <button className="button" type="submit">
+            Add
+          </button>
+        </p>
       </SerializableForm>
     )
   }

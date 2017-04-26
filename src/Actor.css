@@ -1,27 +1,14 @@
-.Actor {
-  display: flex;
-}
-
-.SelectedActor {
+.actor-selected {
   background-color: darkgray;
 }
 
-.ActorInit {
+.actor-init {
   font-size: 36px;
-  text-align: top;
   color: lightgray;
-  width: 50px;
   text-align: right;
 }
 
-.ActorName {
+.actor-name {
   font-size: 36px;
   font-weight: bold;
-  text-align: left;
-  flex-grow: 2;
-}
-
-.ActorDelete {
-  border: none;
-  background-color: transparent;
 }
