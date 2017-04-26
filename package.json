@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "babel-eslint": "^7.2.1",
+    "babel-preset-import-export": "^1.0.2",
     "enzyme": "^2.6.0",
     "eslint": "^3.18.0",
     "eslint-config-airbnb": "^14.1.0",
@@ -20,6 +21,7 @@
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^5.0.4",
+    "react-router-dom": "^4.1.1",
     "redux": "^3.6.0",
     "redux-localstorage": "^0.4.1",
     "uuid": "^3.0.1"
