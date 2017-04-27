@@ -11,7 +11,7 @@ import {
   expand as expandActor,
   selectActors,
   selectExpanded,
-} from '../actors'
+} from '../modules/actors'
 
 const Root = ({ actors, addActor, expandActor, removeActor, expandedId }) => (
   <div>

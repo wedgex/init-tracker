@@ -1,6 +1,6 @@
 import {
   create as createActor,
-} from './lib/Actors'
+} from '../lib/Actors'
 
 export const ADD = 'Actors/ADD'
 export const REMOVE = 'Actors/REMOVE'
