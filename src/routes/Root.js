@@ -8,10 +8,12 @@ import { connect } from 'react-redux'
 import {
   add as addActor,
   remove as removeActor,
-  expand as expandActor,
   selectActors,
-  selectExpanded,
 } from '../modules/actors'
+import {
+  selectSelectedActorId,
+  select as selectActor,
+} from '../modules/list'
 
 const Root = ({ actors, addActor, expandActor, removeActor, expandedId }) => (
   <div>
@@ -32,13 +34,13 @@ const Root = ({ actors, addActor, expandActor, removeActor, expandedId }) => (
 
 const mapStateToProps = state => ({
   actors: selectActors(state),
-  expandedId: selectExpanded(state),
+  expandedId: selectSelectedActorId(state),
 })
 
 const mapDispatchToProps = {
   addActor,
   removeActor,
-  expandActor,
+  expandActor: selectActor,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Root)
