@@ -1,3 +1,4 @@
+import { dissoc } from 'ramda'
 import {
   create as createActor,
 } from '../lib/Actors'
@@ -16,22 +17,23 @@ export const remove = ({ id }) => ({
 })
 
 export const initState = {
-  actors: [],
+  byId: {},
 }
-
-export const selectActors = state => state.actors.actors
 
 export default (state = initState, action) => {
   switch(action.type) {
     case ADD:
       return {
         ...state,
-        actors: [...state.actors, action.actor],
+        byId: {
+          ...state.byId,
+          [action.actor.id]: action.actor,
+        }
       }
     case REMOVE:
       return {
         ...state,
-        actors: state.actors.filter(({ id }) => id !== action.id),
+        byId: dissoc(action.id, state.byId),
       }
     default:
       return state

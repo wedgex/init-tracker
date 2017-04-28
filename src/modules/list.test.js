@@ -4,6 +4,7 @@ import reducer, {
   initState,
   selectSelectedActorId,
 } from './list'
+import { add } from './actors'
 
 describe('select', () => {
   it(`creates action with ${SELECT} type`, () => {
@@ -14,17 +15,6 @@ describe('select', () => {
   it('creates action with id', () => {
     const action = select({ id: '1' })
     expect(action.id).toEqual('1')
-  })
-})
-
-describe('selectSelectedActorId', () => {
-  it('returns selectedActorId', () => {
-    const state = {
-      list: {
-        selectedActorId: '1',
-      }
-    }
-    expect(selectSelectedActorId(state)).toEqual('1')
   })
 })
 

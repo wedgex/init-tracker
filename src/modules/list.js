@@ -7,9 +7,8 @@ export const select = ({ id }) => ({
 
 export const initState = {
   selectedActorId: null,
+  sortedActorIds: [],
 }
-
-export const selectSelectedActorId = state => state.list.selectedActorId
 
 export default (state = initState, action) => {
   switch(action.type) {

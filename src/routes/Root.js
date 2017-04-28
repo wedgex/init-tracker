@@ -1,25 +1,24 @@
 import React from 'react'
 import NewActorContainer from '../NewActorContainer'
 import Actor from '../Actor'
-import {
-  sort as sortActors,
-} from '../lib/Actors'
 import { connect } from 'react-redux'
 import {
   add as addActor,
   remove as removeActor,
-  selectActors,
 } from '../modules/actors'
 import {
-  selectSelectedActorId,
   select as selectActor,
 } from '../modules/list'
+import { 
+  selectSelectedActorId,
+  selectSortedActors,
+} from '../modules/selectors'
 
 const Root = ({ actors, addActor, expandActor, removeActor, expandedId }) => (
   <div>
     <NewActorContainer onSubmit={addActor} />
     {
-      sortActors(actors).map((actor, i) => (
+      actors.map((actor, i) => (
         <Actor
           key={i}
           {...actor}
@@ -33,7 +32,7 @@ const Root = ({ actors, addActor, expandActor, removeActor, expandedId }) => (
 )
 
 const mapStateToProps = state => ({
-  actors: selectActors(state),
+  actors: selectSortedActors(state),
   expandedId: selectSelectedActorId(state),
 })
 
