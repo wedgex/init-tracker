@@ -15,19 +15,21 @@ import {
 } from '../modules/selectors'
 
 const Root = ({ actors, addActor, expandActor, removeActor, expandedId }) => (
-  <div>
-    <NewActorContainer onSubmit={addActor} />
-    {
-      actors.map((actor, i) => (
-        <Actor
-          key={i}
-          {...actor}
-          isSelected={ actor.id === expandedId}
-          onRemove={ () => removeActor(actor) }
-          onClick={ () => expandActor(actor) }
-        />
-      ))
-    }
+  <div className="container">
+    <div className="section">
+      <NewActorContainer onSubmit={addActor} />
+      {
+        actors.map((actor, i) => (
+          <Actor
+            key={i}
+            {...actor}
+            isSelected={ actor.id === expandedId}
+            onRemove={ () => removeActor(actor) }
+            onClick={ () => expandActor(actor) }
+          />
+        ))
+      }
+    </div>
   </div>
 )
 
