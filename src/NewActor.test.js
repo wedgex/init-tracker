@@ -21,7 +21,7 @@ it('renders init input', () => {
 
 it('renders add button', () => {
   const wrapper = shallow(<NewActor />)
-  const button = wrapper.find('button')
+  const button = wrapper.find('button[type="submit"]')
   expect(button.length).toEqual(1)
   expect(button.text()).toEqual('Add')
 })

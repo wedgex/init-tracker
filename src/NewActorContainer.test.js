@@ -1,20 +1,33 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import sinon from 'sinon'
 import NewActorContainer from './NewActorContainer'
 
-it('calls onSubmit with serialized form data', () => {
-  const fauxEvent = { target: { reset: sinon.spy() } }
-  const onSubmit = sinon.spy()
-  const wrapper = shallow(<NewActorContainer onSubmit={onSubmit} />)
-  const data = { foo: 'bar' }
-  wrapper.find('NewActor').props().onSubmit(fauxEvent, data)
-  expect(onSubmit.calledWith(data)).toEqual(true)
+it('renders NewActor', () => {
+  const wrapper = shallow(<NewActorContainer />)
+  expect(wrapper.find('NewActor').length).toEqual(1)
 })
 
-it('resets form on submit', () => {
-  const event = { target: { reset: sinon.spy() } }
-  const wrapper = shallow(<NewActorContainer />)
-  wrapper.find('NewActor').props().onSubmit(event, {})
-  expect(event.target.reset.called).toEqual(true)
+it('passes props to NewActor', () => {
+  const className = 'foo'
+  const wrapper = shallow(<NewActorContainer className={className} />)
+  const newActor = wrapper.find('NewActor')
+  expect(newActor.props().className).toEqual(className)
+})
+
+it('calls onSubmit when NewActor submits', () => {
+  const spy = sinon.spy()
+  const wrapper = shallow(<NewActorContainer onSubmit={spy} />)
+  const newActor = wrapper.find('NewActor')
+  newActor.props().onSubmit({ target: { reset: () => {} } }, { name: 'Taako', init: 5 })
+  expect(spy.called).toEqual(true)
+  expect(spy.args[0][0]).toEqual({ name: 'Taako', init: 5 })
+})
+
+it('calls reset on the form', () => {
+  const spy = sinon.spy()
+  const wrapper = shallow(<NewActorContainer onSubmit={spy} />)
+  const newActor = wrapper.find('NewActor')
+  newActor.props().onSubmit({ target: { reset: spy } }, {})
+  expect(spy.called).toEqual(true)
 })
