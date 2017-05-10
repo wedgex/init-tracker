@@ -1,18 +1,18 @@
 import React from 'react'
-import NewActorContainer from '../components/NewActorContainer'
-import Actor from '../components/Actor'
 import { connect } from 'react-redux'
 import {
   add as addActor,
   remove as removeActor,
-} from '../Actors/actions'
+} from '../../Actors/actions'
 import {
   select as selectActor,
-} from '../modules/list'
+} from '../../modules/list'
 import { 
   selectSelectedActorId,
   selectSortedActors,
-} from '../selectors'
+} from '../../selectors'
+import NewActorContainer from '../components/NewActorContainer'
+import Actor from '../components/Actor'
 
 const Root = ({ actors, addActor, expandActor, removeActor, expandedId }) => (
   <div className="container">
