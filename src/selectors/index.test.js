@@ -1,4 +1,4 @@
-import { selectSelectedActorId } from './selectors'
+import { selectSelectedActorId } from '.'
 
 describe('selectSelectedActorId', () => {
   it('returns selectedActorId', () => {

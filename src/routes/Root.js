@@ -12,7 +12,7 @@ import {
 import { 
   selectSelectedActorId,
   selectSortedActors,
-} from '../modules/selectors'
+} from '../selectors'
 
 const Root = ({ actors, addActor, expandActor, removeActor, expandedId }) => (
   <div className="container">
