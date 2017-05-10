@@ -1,6 +1,6 @@
 import React from 'react'
-import NewActorContainer from '../NewActorContainer'
-import Actor from '../Actor'
+import NewActorContainer from '../components/NewActorContainer'
+import Actor from '../components/Actor'
 import { connect } from 'react-redux'
 import {
   add as addActor,
