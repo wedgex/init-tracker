@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import {
   add as addActor,
   remove as removeActor,
-} from '../modules/actors'
+} from '../Actors/actions'
 import {
   select as selectActor,
 } from '../modules/list'

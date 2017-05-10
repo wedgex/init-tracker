@@ -1,20 +1,5 @@
 import { dissoc } from 'ramda'
-import {
-  create as createActor,
-} from '../lib/Actors'
-
-export const ADD = 'Actors/ADD'
-export const REMOVE = 'Actors/REMOVE'
-
-export const add = actor => ({
-  actor: createActor(actor),
-  type: ADD,
-})
-
-export const remove = ({ id }) => ({
-  id,
-  type: REMOVE,
-})
+import { ADD, REMOVE } from './const'
 
 export const initState = {
   byId: {},
@@ -30,11 +15,13 @@ export default (state = initState, action) => {
           [action.actor.id]: action.actor,
         }
       }
+
     case REMOVE:
       return {
         ...state,
         byId: dissoc(action.id, state.byId),
       }
+
     default:
       return state
   }

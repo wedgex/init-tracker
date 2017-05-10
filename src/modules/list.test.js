@@ -4,7 +4,6 @@ import reducer, {
   initState,
   selectSelectedActorId,
 } from './list'
-import { add } from './actors'
 
 describe('select', () => {
   it(`creates action with ${SELECT} type`, () => {
