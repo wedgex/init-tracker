@@ -1,4 +1,4 @@
-import { sort as sortActors } from '../lib/Actors'
+import sortActors from '../Actors/sort'
 
 export const selectSelectedActorId = state => state.list.selectedActorId
 

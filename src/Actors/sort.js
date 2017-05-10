@@ -1,5 +1,3 @@
-import uuid from 'uuid/v4'
-
 const byInit = (actor1, actor2) => {
   if (actor1.init < actor2.init) {
     return 1
@@ -12,12 +10,7 @@ const byInit = (actor1, actor2) => {
   return 0
 }
 
-export const sort = actors => (
+export default actors => (
   [...actors].sort(byInit)
 )
 
-export const create = actor => ({
-  id: uuid(),
-  name: actor.name,
-  init: parseInt(actor.init, 10) || 0,
-})

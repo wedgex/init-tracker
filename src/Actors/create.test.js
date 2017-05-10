@@ -1,20 +1,4 @@
-import { create, sort } from './Actors'
-
-describe('sort', () => {
-  it('sorts actors by initiative', () => {
-    const actors = [
-      { init: 10, name: 'Snugglesworth' },
-      { init: 20, name: 'Balasar' },
-      { init: 1, name: 'Thorgrim' },
-    ]
-
-    expect(sort(actors)).toEqual([
-      { init: 20, name: 'Balasar' },
-      { init: 10, name: 'Snugglesworth' },
-      { init: 1, name: 'Thorgrim' },
-    ])
-  })
-})
+import create from './create'
 
 describe('create', () => {
   it('generates a uuid', () => {
